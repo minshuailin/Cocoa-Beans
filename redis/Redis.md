@@ -10,7 +10,7 @@
 
 ###### String类型
 
-![1596082831512](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1596082831512.png)
+![1596082831512](C:\Users\Administrator\Desktop\Cocoa-Beans\redis\img\1596082831512.png)
 
 incr key : 自增  decr key ：自减
 
@@ -18,11 +18,11 @@ incr key : 自增  decr key ：自减
 
 **在list中存储的键值对，可以添加重复元素，是有序的**
 
-![1596083232796](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1596083232796.png)
+![1596083232796](C:\Users\Administrator\Desktop\Cocoa-Beans\redis\img\1596083232796.png)
 
 List类型，lpush从列表的头部添加元素，rpush从列表的尾部添加元素。
 
-![1596083340180](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1596083340180.png)
+![1596083340180](C:\Users\Administrator\Desktop\Cocoa-Beans\redis\img\1596083340180.png)
 
 lpop 从列表的头部弹出第一个元素
 
@@ -30,23 +30,23 @@ lpop 从列表的头部弹出第一个元素
 
 **hash是一个string类型的field和value的映射表，hash特别适用于存储对象，存储的是不重复的，无序的**
 
-![1596084034707](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1596084034707.png)
+![1596084034707](C:\Users\Administrator\Desktop\Cocoa-Beans\redis\img\1596084034707.png)
 
 ###### SET类型
 
 **Set是string类型的无序集合。集合成员是唯一的，这就意味着集合中不能出现重复的数据。**
 
-![1596084377307](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1596084377307.png)
+![1596084377307](C:\Users\Administrator\Desktop\Cocoa-Beans\redis\img\1596084377307.png)
 
 ###### ZSET类型
 
 **ZSET是一个有序集合，且不允许出现重复元素，自动有序，在添加元素的时候，通过设置的score来给元素排序**
 
-![1596084771996](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1596084771996.png)
+![1596084771996](C:\Users\Administrator\Desktop\Cocoa-Beans\redis\img\1596084771996.png)
 
 
 
-![1596084872363](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1596084872363.png)
+![1596084872363](C:\Users\Administrator\Desktop\Cocoa-Beans\redis\img\1596084872363.png)
 
 ###### Geospatial类型 地理位置
 
@@ -178,7 +178,7 @@ public class RedisConfig  {
 
 - **redis配置自动触发**
 
-  ![1596098159959](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1596098159959.png)
+  ![1596098159959](C:\Users\Administrator\Desktop\Cocoa-Beans\redis\img\1596098159959.png)
 
 3.**但是，如果子线程在进行持久化一个大的数据的时候，突然电脑关机了，那没有被持久化的数据，也会消失，这就出现了AOF**
 
