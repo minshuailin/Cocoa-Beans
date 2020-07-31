@@ -258,9 +258,38 @@ QUEUED
 
 ##### 缓存穿透
 
+> 缓存穿透，查询一个数据库一定不存在的数据（比如通过一个一定不存在的id查询）,缓存中没有数据，就会向数据库中查询，但是查询后也是null,如果统一时间点，请求量巨大，所有的请求全不打在了数据库上，数据库就会宕机。**在解决的这个问题的时候，可以通过在缓存中设置一个null的值**
+
+```java
+		User user;
+        if(isExist){
+            logger.info("缓存中存在当前用户，从缓存中查找");
+            user = (User) redisTemplate.opsForValue().get(key);
+        }else {
+            logger.info("缓存中没有存在当前用户，从数据库中查找，然后添加到缓存");
+            user = userMapper.getUser(id);
+            if(user!=null){
+                redisTemplate.opsForValue().set(key,user);
+            }else {
+                //当数据库的数据为空时，添加一个null值在缓存中
+                redisTemplate.opsForValue().set(key,null,60, TimeUnit.SECONDS);
+            }
+        }
+```
+
+**布隆过滤器**
+
+
+
 ##### 缓存雪崩
 
+> 缓存中的数据，在同一时间段，失效，直至请求来的时候，直接打在数据库
+
+
+
 ##### 缓存击穿
+
+> 热点key的问题，当这个热点key在失效时，瞬间请求打过来
 
 ##### Redis的发布订阅
 
